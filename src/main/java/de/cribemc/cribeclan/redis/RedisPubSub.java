@@ -17,7 +17,11 @@ public abstract class RedisPubSub implements INameable {
     public abstract void onReceive(ClanRegistry clanRegistry, String[] args);
 
     public String prepareSend(String... args) {
-        String collect = Arrays.stream(args).map(s -> s.replace("Ѿ", "")).collect(Collectors.joining("Ѿ"));
+        String collect = Arrays.stream(args).map(s -> {
+            if (s != null)
+                s = s.replace("Ѿ", "");
+            return s;
+        }).collect(Collectors.joining("Ѿ"));
         return name + "Ѿ" + collect;
     }
 

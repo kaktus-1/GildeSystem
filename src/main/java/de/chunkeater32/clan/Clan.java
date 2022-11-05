@@ -7,10 +7,14 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Getter
 @RequiredArgsConstructor
@@ -25,6 +29,14 @@ public class Clan {
 
     private final ArrayList<User> users = new ArrayList<>();
     private final ArrayList<CustomRank> customRanks = new ArrayList<>();
+
+    public void announce(String msg, UUID... notTo) {
+
+    }
+
+    public void sendTo(String msg, UUID receiver) {
+
+    }
 
     public void updateTag(String tag) {
         setTag(tag);
@@ -49,8 +61,7 @@ public class Clan {
         return customRank;
     }
 
-    public void deleteCustomRank(String name) {
-        CustomRank customRank = getCustomRank(name);
+    public void deleteCustomRank(CustomRank customRank) {
         customRanks.remove(customRank);
     }
 
@@ -58,7 +69,7 @@ public class Clan {
         UUID uniqueId = player.getUniqueId();
         String name = player.getName();
 
-        User user = new User(uniqueId, name, rank);
+        User user = new User(uniqueId, name, this, rank);
 
         users.add(user);
     }
@@ -89,14 +100,24 @@ public class Clan {
                 .findFirst().orElse(null);
     }
 
+    public User getUser(Player player) {
+        return getUser(player.getUniqueId());
+    }
+
     public User getUser(UUID uuid) {
         return users.stream()
                 .filter(user -> user.getUuid().equals(uuid))
                 .findFirst().orElse(null);
     }
 
+    public List<User> getUsersByRank(Rank rank) {
+        return users.stream()
+                .filter(user -> user.getRank() == rank)
+                .collect(Collectors.toUnmodifiableList());
+    }
+
     public static boolean isNotAllowedTag(Player player, String tag) {
-        boolean b = tag.length() > ((DefaultConfig) CribeClan.getInstance()
+        boolean b = ChatColor.stripColor(tag).length() > ((DefaultConfig) CribeClan.getInstance()
                 .getConfigRegistry()
                 .getByClass(DefaultConfig.class))
                 .getClanTagLength();

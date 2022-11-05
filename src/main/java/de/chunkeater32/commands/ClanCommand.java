@@ -2,6 +2,7 @@ package de.chunkeater32.commands;
 
 import de.chunkeater32.clan.Clan;
 import de.chunkeater32.clan.ClanRegistry;
+import de.chunkeater32.clan.User;
 import de.chunkeater32.commands.subcommands.SubCommand;
 import de.chunkeater32.commands.subcommands.SubCommandRegistry;
 import de.chunkeater32.cribeclan.CribeClan;
@@ -66,7 +67,9 @@ public class ClanCommand implements CommandExecutor {
                 return false;
             }
 
-            if (!byName.executeClan((Player) sender, Arrays.copyOfRange(args, 1, args.length), clanFromUser)) {
+            User user = clanFromUser.getUser(((Player) sender).getUniqueId());
+
+            if (!byName.executeClan((Player) sender, Arrays.copyOfRange(args, 1, args.length), clanFromUser, user)) {
                 ChatUtils.sendMessage(sender, "syntax", Replace.of("command", "/clan " + byName.getName()),
                         Replace.of("description", byName.getDescription()),
                         Replace.of("syntax", "/clan " + byName.getName() + " " + byName.getSyntax()));

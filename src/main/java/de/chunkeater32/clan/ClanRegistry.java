@@ -53,4 +53,12 @@ public class ClanRegistry {
                 .findFirst().orElse(null);
     }
 
+    public User getUser(Player player) {
+        Clan clanFromUser = getClanFromUser(player);
+
+        if (clanFromUser == null)
+            return null;
+
+        return clanFromUser.getUser(player);
+    }
 }

@@ -2,13 +2,11 @@ package de.chunkeater32.config;
 
 
 import de.chunkeater32.config.impl.DefaultConfig;
-import de.chunkeater32.config.impl.MessagesConfig;
 import de.chunkeater32.structure.NameableRegistry;
 
 public class ConfigRegistry extends NameableRegistry<Config> {
 
     public ConfigRegistry() {
-        register(new MessagesConfig());
         register(new DefaultConfig());
 
         getObjects().forEach(Config::onStart);

@@ -4,8 +4,11 @@ import de.chunkeater32.clan.ClanRegistry;
 import de.chunkeater32.commands.ClanCommand;
 import de.chunkeater32.commands.subcommands.SubCommandRegistry;
 import de.chunkeater32.config.ConfigRegistry;
+import de.chunkeater32.listener.AsyncPlayerChatListener;
 import lombok.Getter;
 import net.milkbowl.vault.economy.Economy;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @Getter
@@ -30,6 +33,9 @@ public final class CribeClan extends JavaPlugin {
         getCommand("clan").setExecutor(new ClanCommand());
 
         economy = getServer().getServicesManager().getRegistration(Economy.class).getProvider();
+
+        PluginManager pluginManager = Bukkit.getPluginManager();
+        pluginManager.registerEvents(new AsyncPlayerChatListener(), this);
     }
 
     @Override

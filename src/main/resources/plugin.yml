@@ -4,8 +4,8 @@ main: de.chunkeater32.cribeclan.CribeClan
 api-version: 1.18
 authors: [ ChunkEater32 ]
 description: A full functional clan-system for cribe network
-#depend:
-#  - Vault
+depend:
+  - Vault
 softdepend:
   - PlotSquared
 commands:

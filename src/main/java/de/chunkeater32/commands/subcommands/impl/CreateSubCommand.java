@@ -1,13 +1,11 @@
 package de.chunkeater32.commands.subcommands.impl;
 
 import de.chunkeater32.clan.Clan;
-import de.chunkeater32.clan.ClanRegistry;
 import de.chunkeater32.commands.subcommands.SubCommand;
 import de.chunkeater32.cribeclan.CribeClan;
 import de.chunkeater32.utils.ChatUtils;
 import de.chunkeater32.utils.Replace;
 import net.milkbowl.vault.economy.Economy;
-import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.entity.Player;
 
 import java.util.regex.Pattern;

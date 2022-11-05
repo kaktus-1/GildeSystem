@@ -1,5 +1,9 @@
 package de.cribemc.cribeclan.clan;
 
+import de.cribemc.cribeclan.CribeClan;
+import de.cribemc.cribeclan.redis.RedisRegistry;
+import de.cribemc.cribeclan.redis.pub.CreateClanPubSub;
+import de.cribemc.cribeclan.redis.pub.DeleteClanPubSub;
 import lombok.Getter;
 import org.bukkit.entity.Player;
 
@@ -9,6 +13,7 @@ import java.util.UUID;
 @Getter
 public class ClanRegistry {
 
+    private final RedisRegistry redisRegistry = CribeClan.getInstance().getRedisRegistry();
     private final ArrayList<Clan> clans = new ArrayList<>();
 
     public ClanRegistry() {
@@ -16,13 +21,14 @@ public class ClanRegistry {
     }
 
     public void createClan(Player owner, String name, String tag) {
-        Clan clan = new Clan(name, tag);
-        clan.addPlayer(owner, Rank.OWNER);
-        clans.add(clan);
+        redisRegistry.send(CreateClanPubSub.class, name,
+                tag,
+                owner.getUniqueId().toString(),
+                owner.getName());
     }
 
     public void deleteClan(Clan clan) {
-        clans.remove(clan);
+        redisRegistry.send(DeleteClanPubSub.class, clan.getName());
     }
 
     public Clan getClanFromUser(Player player) {
@@ -30,12 +36,6 @@ public class ClanRegistry {
     }
 
     public Clan getClanFromUser(UUID user) {
-        return clans.stream()
-                .filter(clan -> clan.getUser(user) != null)
-                .findFirst().orElse(null);
-    }
-
-    public Clan getClanFromUser(String user) {
         return clans.stream()
                 .filter(clan -> clan.getUser(user) != null)
                 .findFirst().orElse(null);

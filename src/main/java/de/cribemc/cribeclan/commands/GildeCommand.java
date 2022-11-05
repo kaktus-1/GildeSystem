@@ -38,7 +38,7 @@ public class GildeCommand implements CommandExecutor {
             for (SubCommand object : objects) {
                 ChatUtils.sendMessage(sender, "syntax", Replace.of("command", "/gilde " + object.getName()),
                         Replace.of("description", object.getDescription()),
-                        Replace.of("syntax", "/clan " + object.getName() + " " + object.getSyntax()));
+                        Replace.of("syntax", "/gilde " + object.getName() + " " + object.getSyntax()));
             }
 
             return true;
@@ -72,7 +72,7 @@ public class GildeCommand implements CommandExecutor {
             if (!byName.executeClan((Player) sender, Arrays.copyOfRange(args, 1, args.length), clanFromUser, user)) {
                 ChatUtils.sendMessage(sender, "syntax", Replace.of("command", "/gilde " + byName.getName()),
                         Replace.of("description", byName.getDescription()),
-                        Replace.of("syntax", "/clan " + byName.getName() + " " + byName.getSyntax()));
+                        Replace.of("syntax", "/gilde " + byName.getName() + " " + byName.getSyntax()));
                 return false;
             }
             return true;
@@ -81,7 +81,7 @@ public class GildeCommand implements CommandExecutor {
         if (!byName.execute((Player) sender, Arrays.copyOfRange(args, 1, args.length))) {
             ChatUtils.sendMessage(sender, "syntax", Replace.of("command", "/gilde " + byName.getName()),
                     Replace.of("description", byName.getDescription()),
-                    Replace.of("syntax", "/clan " + byName.getName() + " " + byName.getSyntax()));
+                    Replace.of("syntax", "/gilde " + byName.getName() + " " + byName.getSyntax()));
             return false;
         }
         return true;

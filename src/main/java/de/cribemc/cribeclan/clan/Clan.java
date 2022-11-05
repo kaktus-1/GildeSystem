@@ -1,7 +1,9 @@
 package de.cribemc.cribeclan.clan;
 
-import de.cribemc.cribeclan.config.impl.DefaultConfig;
 import de.cribemc.cribeclan.CribeClan;
+import de.cribemc.cribeclan.config.impl.DefaultConfig;
+import de.cribemc.cribeclan.redis.RedisRegistry;
+import de.cribemc.cribeclan.redis.pub.*;
 import de.cribemc.cribeclan.utils.ChatUtils;
 import lombok.Getter;
 import lombok.NonNull;
@@ -11,6 +13,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -26,64 +29,57 @@ public class Clan {
     @Setter
     private String tag;
 
+    private final RedisRegistry redisRegistry = CribeClan.getInstance().getRedisRegistry();
     private final ArrayList<User> users = new ArrayList<>();
     private final ArrayList<CustomRank> customRanks = new ArrayList<>();
 
     public void announce(String msg, UUID... notTo) {
-
+        redisRegistry.send(AnnouncePubSub.class, getName(), msg, Arrays.stream(notTo)
+                .map(UUID::toString)
+                .collect(Collectors.joining(",")));
     }
 
     public void sendTo(String msg, UUID receiver) {
-
+        redisRegistry.send(SendToPubSub.class, receiver.toString(), msg);
     }
 
     public void updateTag(String tag) {
-        setTag(tag);
+        redisRegistry.send(UpdateTagPubSub.class, getName(), tag);
     }
 
     public void updateName(String name) {
-        setName(name);
+        redisRegistry.send(UpdateTagPubSub.class, getName(), name);
     }
 
     public void updatePlayerRank(User user, Rank rank) {
-        user.setRank(rank);
+        redisRegistry.send(UpdatePlayerRankPubSub.class, getName(), user.getUuid().toString(), rank.name());
     }
 
     public void setCustomRankForUser(User user, CustomRank customRank) {
-        user.setCustomRank(customRank);
+        redisRegistry.send(SetCustomRankForUserPubSub.class, getName(), user.getUuid().toString(), customRank == null ? null : customRank.getName());
     }
 
-    public CustomRank createCustomRank(String name, String displayName) {
-        CustomRank customRank = new CustomRank(name, displayName);
-        customRanks.add(customRank);
-        return customRank;
+    public void createCustomRank(String name, String displayName) {
+        redisRegistry.send(CreateCustomRankPubSub.class, getName(), name, displayName);
     }
 
     public void deleteCustomRank(CustomRank customRank) {
-        customRanks.remove(customRank);
+        redisRegistry.send(DeleteCustomRankPubSub.class, getName(), customRank.getName());
     }
 
     public void addPlayer(Player player, Rank rank) {
-        UUID uniqueId = player.getUniqueId();
-        String name = player.getName();
-
-        User user = new User(uniqueId, name, this, rank);
-
-        users.add(user);
+        redisRegistry.send(AddPlayerPubSub.class, getName(),
+                player.getUniqueId().toString(),
+                player.getName(),
+                rank.name());
     }
 
     public void addPlayer(Player player) {
         addPlayer(player, Rank.MEMBER);
     }
 
-    public void removePlayer(String name) {
-        User user = getUser(name);
-        users.remove(user);
-    }
-
     public void removePlayer(UUID uuid) {
-        User user = getUser(uuid);
-        users.remove(user);
+        redisRegistry.send(RemovePlayerPubSub.class, getName(), uuid.toString());
     }
 
     public CustomRank getCustomRank(String name) {

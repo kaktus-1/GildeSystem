@@ -22,6 +22,10 @@ public class DefaultConfig extends Config {
         FileConfiguration cfg = getCfg();
 
         cfg.addDefault("prefix", "§6§lClan §8• ");
+        cfg.addDefault("redis.host", "127.0.0.1");
+        cfg.addDefault("redis.port", 6379);
+        cfg.addDefault("redis.user", "root");
+        cfg.addDefault("redis.password", null);
         cfg.addDefault("clan.name_length", 20);
         cfg.addDefault("clan.tag_length", 7);
         cfg.addDefault("clan.max_members", 20);

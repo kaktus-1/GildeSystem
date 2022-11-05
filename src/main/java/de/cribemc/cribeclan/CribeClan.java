@@ -5,6 +5,7 @@ import de.cribemc.cribeclan.commands.GildeCommand;
 import de.cribemc.cribeclan.commands.subcommands.SubCommandRegistry;
 import de.cribemc.cribeclan.config.ConfigRegistry;
 import de.cribemc.cribeclan.listener.AsyncPlayerChatListener;
+import de.cribemc.cribeclan.redis.RedisRegistry;
 import lombok.Getter;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
@@ -17,6 +18,7 @@ public final class CribeClan extends JavaPlugin {
     @Getter
     private static CribeClan instance;
 
+    private RedisRegistry redisRegistry;
     private ConfigRegistry configRegistry;
     private ClanRegistry clanRegistry;
     private SubCommandRegistry subCommandRegistry;
@@ -27,6 +29,7 @@ public final class CribeClan extends JavaPlugin {
         instance = this;
 
         configRegistry = new ConfigRegistry();
+        redisRegistry = new RedisRegistry();
         clanRegistry = new ClanRegistry();
         subCommandRegistry = new SubCommandRegistry();
 

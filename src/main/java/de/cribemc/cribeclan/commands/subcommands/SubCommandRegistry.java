@@ -12,7 +12,7 @@ public class SubCommandRegistry extends NameableRegistry<SubCommand> {
 
     @SneakyThrows
     public SubCommandRegistry() {
-        Reflections reflections = new Reflections("de.chunkeater32.commands.subcommands.impl");
+        Reflections reflections = new Reflections("de.cribemc.cribeclan.commands.subcommands.impl");
         ConfigRegistry configRegistry = CribeClan.getInstance().getConfigRegistry();
         Config byClass = configRegistry.getByClass(DefaultConfig.class);
 

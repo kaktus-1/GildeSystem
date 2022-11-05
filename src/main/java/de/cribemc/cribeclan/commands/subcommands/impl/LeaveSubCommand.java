@@ -8,9 +8,9 @@ import org.bukkit.entity.Player;
 
 public class LeaveSubCommand extends SubCommand {
     public LeaveSubCommand() {
-        super("leave", "", "Verlasse deinen Clan");
-        addDefault("a", "§7Dieser Befehl ist Clan-Moderatoren und Clan-Membern vorbehalten!");
-        addDefault("b", "§7Erfolgreich den Clan verlassen.");
+        super("leave", "", "Verlasse deine Gilde");
+        addDefault("a", "§7Dieser Befehl ist Gilden-Moderatoren und Gilden-Membern vorbehalten!");
+        addDefault("b", "§7Erfolgreich die Gilde verlassen.");
     }
 
     @Override

@@ -11,11 +11,11 @@ import org.bukkit.entity.Player;
 public class SetTagSubCommand extends SubCommand {
 
     public SetTagSubCommand() {
-        super("settag", "<tag>", "Editiere den Tag deines Clans");
-        addDefault("a", "§7Der gewünschte Clan-Tag ist bereits vergeben!");
+        super("settag", "<tag>", "Editiere den Tag deiner Gilde");
+        addDefault("a", "§7Der gewünschte Gilden-Tag ist bereits vergeben!");
         addDefault("b", "§7Du darfst keine Farbcodes verwenden.");
-        addDefault("c", "§7Der Tag deines Clans ist nun: %tag%");
-        addDefault("d", "§7Dieser Befehl ist dem Clan-Inhaber vorbehalten!");
+        addDefault("c", "§7Der Tag deiner Gilde ist nun: %tag%");
+        addDefault("d", "§7Dieser Befehl ist dem Gilden-Inhaber vorbehalten!");
     }
 
     @Override

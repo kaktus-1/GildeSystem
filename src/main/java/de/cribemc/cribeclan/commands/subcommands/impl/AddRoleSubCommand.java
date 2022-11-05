@@ -10,9 +10,9 @@ import org.bukkit.entity.Player;
 
 public class AddRoleSubCommand extends SubCommand {
     public AddRoleSubCommand() {
-        super("addrole", "<user> <role>", "Weist einem Spieler eine bestimmte Clan-Rolle zu (maximal 1)");
-        addDefault("a", "§7Dieser Befehl ist dem Clan-Inhaber vorbehalten!");
-        addDefault("b", "§7Dieser Spieler ist nicht in deinem Clan!");
+        super("addrole", "<user> <role>", "Weist einem Spieler eine bestimmte Gilden-Rolle zu (maximal 1)");
+        addDefault("a", "§7Dieser Befehl ist dem Gilden-Inhaber vorbehalten!");
+        addDefault("b", "§7Dieser Spieler ist nicht in deiner Gilde!");
         addDefault("c", "§7Diese Rolle existiert nicht.");
         addDefault("d", "§b%player% §7wurde die Rolle %role% §7zugewiesen!");
         addDefault("e", "§b%player% §7hat dir die Rolle %role% §7zugewiesen!");

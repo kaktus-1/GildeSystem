@@ -1,6 +1,7 @@
 package de.cribemc.cribeclan.utils;
 
 import de.cribemc.cribeclan.clan.Clan;
+import de.cribemc.cribeclan.clan.User;
 import de.cribemc.cribeclan.commands.subcommands.SubCommand;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -15,5 +16,10 @@ public class ConfirmHelper {
     private final Clan clan;
     @Setter
     private boolean done;
+
+    @Setter
+    private User user;
+    @Setter
+    private User user1;
 
 }

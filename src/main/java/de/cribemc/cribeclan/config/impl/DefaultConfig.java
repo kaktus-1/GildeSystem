@@ -21,7 +21,7 @@ public class DefaultConfig extends Config {
     public void onStart() {
         FileConfiguration cfg = getCfg();
 
-        cfg.addDefault("prefix", "§6§lClan §8• ");
+        cfg.addDefault("prefix", "§6§lGilde §8• ");
         cfg.addDefault("redis.host", "127.0.0.1");
         cfg.addDefault("redis.port", 6379);
         cfg.addDefault("redis.user", "root");
@@ -37,10 +37,10 @@ public class DefaultConfig extends Config {
         cfg.addDefault("no-perm", "§7Keine Berechtigung!");
         cfg.addDefault("not-allowed", Arrays.asList("§7Deine Eingabe enthält unerlaubte Zeichen!",
                 "§7Erlaubte Zeichen: §bA-Z§8, §bÄ§8, §bÜ§8, §bÖ§8, §b0-9"));
-        cfg.addDefault("not-member", "§7Du bist aktuell nicht Mitglied eines Clans!");
-        cfg.addDefault("already-member", "§7Du bist bereits Mitglied eines Clans!");
-        cfg.addDefault("clan-tag-too-long", "§7Der Clan Tag darf maximal 7 Zeichen lang sein.");
-        cfg.addDefault("clan-name-too-long", "§7Der Clan Name darf maximal 20 Zeichen lang sein.");
+        cfg.addDefault("not-member", "§7Du bist aktuell nicht Mitglied einer Gilde!");
+        cfg.addDefault("already-member", "§7Du bist bereits Mitglied einer Gilde!");
+        cfg.addDefault("clan-tag-too-long", "§7Der Gilden Tag darf maximal 7 Zeichen lang sein.");
+        cfg.addDefault("clan-name-too-long", "§7Der Gilden Name darf maximal 20 Zeichen lang sein.");
         cfg.addDefault("prefix-owner", "§4");
         cfg.addDefault("prefix-mod", "§a");
         cfg.addDefault("prefix-member", "§7");

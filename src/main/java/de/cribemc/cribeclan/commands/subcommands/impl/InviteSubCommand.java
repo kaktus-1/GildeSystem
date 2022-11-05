@@ -8,8 +8,8 @@ import org.bukkit.entity.Player;
 
 public class InviteSubCommand extends SubCommand {
     public InviteSubCommand() {
-        super("invite", "<user>", "Versende eine Clan-Einladung an einen bestimmten Spieler");
-        addDefault("a", "§7Dieser Befehl ist Clan-Moderatoren und dem Clan-Inhaber vorbehalten!");
+        super("invite", "<user>", "Versende eine Gilden-Einladung an einen bestimmten Spieler");
+        addDefault("a", "§7Dieser Befehl ist Gilden-Moderatoren und dem Gilden-Inhaber vorbehalten!");
     }
 
     @Override

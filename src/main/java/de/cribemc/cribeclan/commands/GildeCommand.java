@@ -1,11 +1,11 @@
 package de.cribemc.cribeclan.commands;
 
+import de.cribemc.cribeclan.CribeClan;
 import de.cribemc.cribeclan.clan.Clan;
 import de.cribemc.cribeclan.clan.ClanRegistry;
 import de.cribemc.cribeclan.clan.User;
 import de.cribemc.cribeclan.commands.subcommands.SubCommand;
 import de.cribemc.cribeclan.commands.subcommands.SubCommandRegistry;
-import de.cribemc.cribeclan.CribeClan;
 import de.cribemc.cribeclan.utils.ChatUtils;
 import de.cribemc.cribeclan.utils.Replace;
 import org.bukkit.command.Command;
@@ -14,12 +14,15 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class GildeCommand implements CommandExecutor {
 
+    public static final ArrayList<UUID> debug = new ArrayList<>();
     private final SubCommandRegistry subCommandRegistry = CribeClan.getInstance().getSubCommandRegistry();
     private final ClanRegistry clanRegistry = CribeClan.getInstance().getClanRegistry();
 
@@ -41,6 +44,20 @@ public class GildeCommand implements CommandExecutor {
                         Replace.of("syntax", "/gilde " + object.getName() + " " + object.getSyntax()));
             }
 
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("debug") && sender.hasPermission("cribe.clans.debug")) {
+            UUID uniqueId = ((Player) sender).getUniqueId();
+
+            if (!debug.contains(uniqueId)) {
+                debug.add(uniqueId);
+                sender.sendMessage("Debug on");
+                return true;
+            }
+
+            debug.remove(uniqueId);
+            sender.sendMessage("Debug off");
             return true;
         }
 

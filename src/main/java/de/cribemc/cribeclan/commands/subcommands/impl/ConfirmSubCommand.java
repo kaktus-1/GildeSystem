@@ -17,7 +17,7 @@ public class ConfirmSubCommand extends SubCommand {
 
     public ConfirmSubCommand() {
         super("confirm", "", "Bestätigt eine bestimmte Aktion");
-        addDefault("a", "§7Bitte bestätige deine Eingabe mit §e/clan confirm");
+        addDefault("a", "§7Bitte bestätige deine Eingabe mit §e/gilde confirm");
         addDefault("b", "§7Bitte warte einen Moment bis du erneut eine Aktion bestätigen kannst.");
         addDefault("c", "§7Es gibt keine Aktion zu bestätigen.");
         addDefault("d", "§7Zeit um die Aktion zu bestätigen ist abgelaufen.");

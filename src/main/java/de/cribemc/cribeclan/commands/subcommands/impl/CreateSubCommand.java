@@ -12,15 +12,15 @@ import java.util.regex.Pattern;
 
 public class CreateSubCommand extends SubCommand {
     public CreateSubCommand() {
-        super("create", "<name> <tag>", "Erstellt einen neuen Clan (benötigt 25.000$)");
+        super("create", "<name> <tag>", "Erstellt einen neue Gilde (benötigt 25.000$)");
         addDefault("costs", 25000d);
         addDefault("regex", "(?i)[^A-Z0-9ÄÖÜ§]");
-        addDefault("a", "§7Du benötigst §625.000$§7, um diesen Clan zu erstellen.");
-        addDefault("b", "§7Du hast §b%name% §7mit dem Clan-Tag §b%tag% §7erfolgreich erstellt!");
-        addDefault("c", "§7Der gewünschte Clan-Name ist bereits vergeben!");
-        addDefault("d", "§7Der gewünschte Clan-Tag ist bereits vergeben!");
+        addDefault("a", "§7Du benötigst §625.000$§7, um diese Gilde zu erstellen.");
+        addDefault("b", "§7Du hast §b%name% §7mit dem Gilden-Tag §b%tag% §7erfolgreich erstellt!");
+        addDefault("c", "§7Der gewünschte Gilden-Name ist bereits vergeben!");
+        addDefault("d", "§7Der gewünschte Gilden-Tag ist bereits vergeben!");
         addDefault("e", "§7Du darfst keine Farbcodes verwenden.");
-        addDefault("f", "§7Farbcodes dürfen nur in den Clan Tag!");
+        addDefault("f", "§7Farbcodes dürfen nur in den Gilden Tag!");
         setRequiresClan(false);
     }
 

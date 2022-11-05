@@ -9,12 +9,12 @@ import org.bukkit.entity.Player;
 
 public class DeRankSubCommand extends SubCommand {
     public DeRankSubCommand() {
-        super("derank", "<user>", "Degradiere einen Spieler vom Clan-Moderator zurück zum Clan-Member.");
-        addDefault("a", "§7Dieser Befehl ist dem Clan-Inhaber vorbehalten!");
-        addDefault("b", "§7Dieser Spieler befindet sich nicht in deinen Clan!");
-        addDefault("c", "§7Dieser Spieler ist kein Clan-Moderator!");
-        addDefault("d", "§b%player% §7hat dich degradiert. Du bist nun kein §2Clan-Moderator §7mehr.");
-        addDefault("e", "§b%player% §7ist nun kein §2Clan-Moderator §7mehr.");
+        super("derank", "<user>", "Degradiere einen Spieler vom Gilden-Moderator zurück zum Gilden-Member.");
+        addDefault("a", "§7Dieser Befehl ist dem Gilden-Inhaber vorbehalten!");
+        addDefault("b", "§7Dieser Spieler befindet sich nicht in deiner Gilde!");
+        addDefault("c", "§7Dieser Spieler ist kein Gilden-Moderator!");
+        addDefault("d", "§b%player% §7hat dich degradiert. Du bist nun kein §2Gilden-Moderator §7mehr.");
+        addDefault("e", "§b%player% §7ist nun kein §2Gilden-Moderator §7mehr.");
     }
 
     @Override

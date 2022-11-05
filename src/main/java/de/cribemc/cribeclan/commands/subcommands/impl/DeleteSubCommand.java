@@ -10,10 +10,10 @@ import org.bukkit.entity.Player;
 
 public class DeleteSubCommand extends SubCommand {
     public DeleteSubCommand() {
-        super("delete", "", "Löscht einen zuvor erstellten Clan");
+        super("delete", "", "Löscht eine zuvor erstelle Gilde");
         addDefault("a", "§7Du hast §b%name% §7erfolgreich aufgelöst!");
-        addDefault("b", "§7Dieser Befehl ist dem Clan-Inhaber vorbehalten!");
-        addDefault("c", "§7Der Clan wurde aufgelöst.");
+        addDefault("b", "§7Dieser Befehl ist dem Gilden-Inhaber vorbehalten!");
+        addDefault("c", "§7Die Gilde wurde aufgelöst.");
     }
 
     @Override

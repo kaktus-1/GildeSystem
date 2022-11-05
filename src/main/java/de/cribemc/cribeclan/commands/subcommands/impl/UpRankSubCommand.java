@@ -9,13 +9,13 @@ import org.bukkit.entity.Player;
 
 public class UpRankSubCommand extends SubCommand {
     public UpRankSubCommand() {
-        super("uprank", "<user>", "Befördere einen Spieler vom Clan-Member zum Clan-Moderator");
-        addDefault("a", "§7Dieser Befehl ist dem Clan-Inhaber vorbehalten!");
-        addDefault("b", "§7Dieser Spieler befindet sich nicht in deinen Clan!");
-        addDefault("c", "§7Dieser Spieler ist bereits Clan-Moderator!");
-        addDefault("d", "§b%player% §7hat dich zum §2Clan-Moderator §7befördert.");
-        addDefault("e", "§b%player% §7ist nun §2Clan-Moderator§7.");
-        addDefault("f", "§b%player% §7ist nun §2Clan-Moderator §7in unserem Clan.");
+        super("uprank", "<user>", "Befördere einen Spieler vom Gilden-Member zum Gilden-Moderator");
+        addDefault("a", "§7Dieser Befehl ist dem Gilden-Inhaber vorbehalten!");
+        addDefault("b", "§7Dieser Spieler befindet sich nicht in deiner Gilde!");
+        addDefault("c", "§7Dieser Spieler ist bereits Gilden-Moderator!");
+        addDefault("d", "§b%player% §7hat dich zum §2Gilden-Moderator §7befördert.");
+        addDefault("e", "§b%player% §7ist nun §2Gilden-Moderator§7.");
+        addDefault("f", "§b%player% §7ist nun §2Gilden-Moderator §7in unserem Clan.");
     }
 
     @Override

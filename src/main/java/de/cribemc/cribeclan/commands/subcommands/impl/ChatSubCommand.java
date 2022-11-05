@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 
 public class ChatSubCommand extends SubCommand {
     public ChatSubCommand() {
-        super("chat", "", "Wechsle in den Clan-Chat und wieder zurück in den globalen Chat");
+        super("chat", "", "Wechsle in den Gilden-Chat und wieder zurück in den globalen Chat");
         addDefault("format", "§8• %role% §8| %prefix%%player% §8• §7%message%");
     }
 

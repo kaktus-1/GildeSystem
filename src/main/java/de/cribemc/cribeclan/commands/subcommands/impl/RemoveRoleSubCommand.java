@@ -10,8 +10,8 @@ import org.bukkit.entity.Player;
 public class RemoveRoleSubCommand extends SubCommand {
     public RemoveRoleSubCommand() {
         super("removerole", "<user>", "Entfernt dem Spieler seine Rolle");
-        addDefault("a", "§7Dieser Befehl ist dem Clan-Inhaber vorbehalten!");
-        addDefault("b", "§7Dieser Spieler ist nicht in deinem Clan!");
+        addDefault("a", "§7Dieser Befehl ist dem Gilden-Inhaber vorbehalten!");
+        addDefault("b", "§7Dieser Spieler ist nicht in deiner Gilde!");
         addDefault("c", "§7Dieser Spieler hat keine Rolle");
         addDefault("d", "§7Du hast erfolgreich §b%player% §7seine Rolle entfernt.");
         addDefault("e", "§b%player% §7hat dir deine Rolle entfernt.");

@@ -14,10 +14,10 @@ import java.util.stream.Collectors;
 
 public class ListSubCommand extends SubCommand {
     public ListSubCommand() {
-        super("list", "[clan]", "Auflistung der Mitglieder des eigenen/eines anderen Clans");
-        addDefault("a", "§7Konnte keinen Clan mit dem Namen/Tag §e%name% §7finden.");
-        addDefault("own", "§6Clan §8| §7Mitglieder:");
-        addDefault("other", "§6Clan §8| §7Mitglieder von §b%name%§7 (§b%tag%§7):");
+        super("list", "[gilde]", "Auflistung der Mitglieder der eigenen/einer anderen Gilde");
+        addDefault("a", "§7Konnte keine Gilde mit dem Namen/Tag §e%name% §7finden.");
+        addDefault("own", "§6Gilden §8| §7Mitglieder:");
+        addDefault("other", "§6Gilden §8| §7Mitglieder von §b%name%§7 (§b%tag%§7):");
         addDefault("format", "§8• %role% §8| %prefix%%player%");
         addDefault("list", Arrays.asList("%info%",
                 "§7",
@@ -29,7 +29,7 @@ public class ListSubCommand extends SubCommand {
                 "§7",
                 "§7Mitglieder:",
                 "%members%"));
-        addDefault("none", "§7Keine");
+        addDefault("none", "§7Keiner");
         setRequiresClan(false);
     }
 

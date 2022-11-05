@@ -1,18 +1,21 @@
 package de.cribemc.cribeclan.redis;
 
 import de.cribemc.cribeclan.CribeClan;
+import de.cribemc.cribeclan.commands.GildeCommand;
 import de.cribemc.cribeclan.config.Config;
 import de.cribemc.cribeclan.config.impl.DefaultConfig;
 import de.cribemc.cribeclan.structure.NameableRegistry;
 import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.reflections.Reflections;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPubSub;
 
 import java.util.Arrays;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 public class RedisRegistry extends NameableRegistry<RedisPubSub> {
@@ -49,6 +52,16 @@ public class RedisRegistry extends NameableRegistry<RedisPubSub> {
 
                         RedisPubSub byName = getByName(s[0]);
 
+                        for (UUID uuid : GildeCommand.debug) {
+                            Player player = Bukkit.getPlayer(uuid);
+                            if (player != null) {
+                                player.sendMessage("§a[CLAN] §7in:");
+                                for (String s1 : s) {
+                                    player.sendMessage("       §c" + s1);
+                                }
+                            }
+                        }
+
                         byName.onReceive(instance.getClanRegistry(), Arrays.copyOfRange(s, 1, s.length));
                     }
                 }, "clan");
@@ -58,6 +71,17 @@ public class RedisRegistry extends NameableRegistry<RedisPubSub> {
 
     public void send(Class<? extends RedisPubSub> sub, String... args) {
         String s = getByClass(sub).prepareSend(args);
+
+        String[] s1 = s.split("Ѿ");
+        for (UUID uuid : GildeCommand.debug) {
+            Player player = Bukkit.getPlayer(uuid);
+            if (player != null) {
+                player.sendMessage("§a[CLAN] §7out:");
+                for (String s2 : s1) {
+                    player.sendMessage("       §c" + s2);
+                }
+            }
+        }
 
         try (Jedis ressource = pool.getResource()) {
             ressource.publish("clan", s);

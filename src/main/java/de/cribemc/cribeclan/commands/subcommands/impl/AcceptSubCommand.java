@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 
 public class AcceptSubCommand extends SubCommand {
     public AcceptSubCommand() {
-        super("accept", "[clan]", "Eingeladener Spieler kann Einladung annehmen");
+        super("accept", "[gilde]", "Eingeladener Spieler kann Einladung annehmen");
         setRequiresClan(false);
     }
 

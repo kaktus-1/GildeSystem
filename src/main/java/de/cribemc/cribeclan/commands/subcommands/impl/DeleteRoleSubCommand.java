@@ -10,8 +10,8 @@ import org.bukkit.entity.Player;
 
 public class DeleteRoleSubCommand extends SubCommand {
     public DeleteRoleSubCommand() {
-        super("deleterole", "<role>", "Löscht eine bestimmte Clan-Rolle");
-        addDefault("a", "§7Dieser Befehl ist dem Clan-Inhaber vorbehalten!");
+        super("deleterole", "<role>", "Löscht eine bestimmte Gilden-Rolle");
+        addDefault("a", "§7Dieser Befehl ist dem Gilden-Inhaber vorbehalten!");
         addDefault("b", "§7Es existiert kein Rolle mit diesem Namen.");
         addDefault("c", "§7Du hast die Rolle §b%role% §7(§b%display%§7) erfolgreich gelöscht.");
     }

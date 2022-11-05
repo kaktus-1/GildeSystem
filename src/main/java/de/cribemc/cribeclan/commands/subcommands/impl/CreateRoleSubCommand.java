@@ -12,9 +12,9 @@ import java.util.regex.Pattern;
 
 public class CreateRoleSubCommand extends SubCommand {
     public CreateRoleSubCommand() {
-        super("createrole", "<role> <displayname>", "Erstellt eine neue Clan-Rolle");
+        super("createrole", "<role> <displayname>", "Erstellt eine neue Gilden-Rolle");
         addDefault("regex", "(?i)[^A-Z0-9ÄÖÜ§]");
-        addDefault("a", "§7Dieser Befehl ist dem Clan-Inhaber vorbehalten!");
+        addDefault("a", "§7Dieser Befehl ist dem Gilden-Inhaber vorbehalten!");
         addDefault("b", "§7Es existiert bereits eine Rolle mit diesem Namen.");
         addDefault("c", "§7Du hast die Rolle §b%role% §7(§b%display%§7) erfolgreich erstellt.");
         addDefault("d", "§7Farbcodes dürfen nur in den Displaynamen!");

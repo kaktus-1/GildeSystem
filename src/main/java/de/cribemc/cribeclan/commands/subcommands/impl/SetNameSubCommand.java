@@ -10,9 +10,9 @@ import org.bukkit.entity.Player;
 
 public class SetNameSubCommand extends SubCommand {
     public SetNameSubCommand() {
-        super("setname", "<name>", "Editiere den Namen deines Clans");
-        addDefault("a", "§7Dieser Befehl ist dem Clan-Inhaber vorbehalten!");
-        addDefault("b", "§7Der Name deines Clans ist nun: §b%name%");
+        super("setname", "<name>", "Editiere den Namen deiner Gilde");
+        addDefault("a", "§7Dieser Befehl ist dem Gilden-Inhaber vorbehalten!");
+        addDefault("b", "§7Der Name deiner Gilde ist nun: §b%name%");
     }
 
     @Override

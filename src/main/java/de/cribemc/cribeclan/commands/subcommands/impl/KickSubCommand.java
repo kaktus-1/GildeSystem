@@ -9,12 +9,12 @@ import org.bukkit.entity.Player;
 
 public class KickSubCommand extends SubCommand {
     public KickSubCommand() {
-        super("kick", "<user>", "Wirft einen bestimmten Spieler aus dem Clan");
-        addDefault("a", "§7Dieser Befehl ist Clan-Moderatoren und dem Clan-Inhaber vorbehalten!");
-        addDefault("b", "§7Dieser Spieler ist nicht in deinem Clan!");
-        addDefault("c", "§b%player% §7wurde aus dem Clan geworfen.");
-        addDefault("d", "§7Du wurdest aus dem Clan geworfen!");
-        addDefault("e", "§b%player% §7wurde aus dem Clan geworfen.");
+        super("kick", "<user>", "Wirft einen bestimmten Spieler aus der Gilde");
+        addDefault("a", "§7Dieser Befehl ist Gilden-Moderatoren und dem Gilden-Inhaber vorbehalten!");
+        addDefault("b", "§7Dieser Spieler ist nicht in deiner Gilde!");
+        addDefault("c", "§b%player% §7wurde aus der Gilde geworfen.");
+        addDefault("d", "§7Du wurdest aus der Gilde geworfen!");
+        addDefault("e", "§b%player% §7wurde aus der Gilde geworfen.");
     }
 
     @Override

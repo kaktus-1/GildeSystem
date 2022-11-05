@@ -9,4 +9,4 @@ depend:
 softdepend:
   - PlotSquared
 commands:
-  clan:
+  gilde:

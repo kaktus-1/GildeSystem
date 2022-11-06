@@ -36,6 +36,10 @@ public class MySQLRegistry {
         hikariDatabase.executeUpdate("CREATE TABLE IF NOT EXISTS `customranks` (`clan` TEXT NOT NULL, " +
                 "`name` TEXT NOT NULL, " +
                 "`displayname` TEXT NOT NULL)");
+        hikariDatabase.executeUpdate("CREATE TABLE IF NOT EXISTS `tagcooldown` (`clan` TEXT NOT NULL, " +
+                "`time` LONG NOT NULL)");
+        hikariDatabase.executeUpdate("CREATE TABLE IF NOT EXISTS `namecooldown` (`clan` TEXT NOT NULL, " +
+                "`time` LONG NOT NULL)");
 
         ClanRegistry clanRegistry = instance.getClanRegistry();
 

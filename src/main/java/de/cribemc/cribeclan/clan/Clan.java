@@ -59,6 +59,8 @@ public class Clan {
                 name, getName());
         DB.executeUpdate("UPDATE `users` SET `clan` = ? WHERE `clan` = ?",
                 name, getName());
+        DB.executeUpdate("UPDATE `tagcooldown` SET `clan` = ? WHERE `clan` = ?",
+                name, getName());
         getRedisRegistry().send(UpdateTagPubSub.class, getName(), name);
     }
 

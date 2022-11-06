@@ -1,5 +1,6 @@
 package de.cribemc.cribeclan;
 
+import de.cribemc.cribeclan.addon.GS;
 import de.cribemc.cribeclan.clan.ClanRegistry;
 import de.cribemc.cribeclan.commands.GildeCommand;
 import de.cribemc.cribeclan.commands.subcommands.SubCommandRegistry;
@@ -35,6 +36,8 @@ public final class CribeClan extends JavaPlugin {
         mySQLRegistry = new MySQLRegistry();
         redisRegistry = new RedisRegistry();
         subCommandRegistry = new SubCommandRegistry();
+
+        GS.initialize();
 
         getCommand("gilde").setExecutor(new GildeCommand());
 

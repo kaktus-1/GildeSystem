@@ -26,6 +26,11 @@ public class DefaultConfig extends Config {
         cfg.addDefault("redis.port", 6379);
         cfg.addDefault("redis.user", "root");
         cfg.addDefault("redis.password", null);
+        cfg.addDefault("mysql.host", "127.0.0.1");
+        cfg.addDefault("mysql.port", 3306);
+        cfg.addDefault("mysql.user", "root");
+        cfg.addDefault("mysql.password", "");
+        cfg.addDefault("mysql.database", "cribetest");
         cfg.addDefault("clan.name_length", 20);
         cfg.addDefault("clan.tag_length", 7);
         cfg.addDefault("clan.max_members", 20);

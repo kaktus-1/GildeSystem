@@ -79,4 +79,13 @@ public class ClanRegistry {
 
         return clanFromUser.getUser(player);
     }
+
+    public User getUser(UUID player) {
+        Clan clanFromUser = getClanFromUser(player);
+
+        if (clanFromUser == null)
+            return null;
+
+        return clanFromUser.getUser(player);
+    }
 }

@@ -8,6 +8,7 @@ import de.cribemc.cribeclan.config.ConfigRegistry;
 import de.cribemc.cribeclan.listener.AsyncPlayerChatListener;
 import de.cribemc.cribeclan.mysql.MySQLRegistry;
 import de.cribemc.cribeclan.redis.RedisRegistry;
+import de.cribemc.cribeclan.utils.TagExpansion;
 import lombok.Getter;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
@@ -45,6 +46,10 @@ public final class CribeClan extends JavaPlugin {
 
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new AsyncPlayerChatListener(), this);
+
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            new TagExpansion().register();
+        }
     }
 
     @Override

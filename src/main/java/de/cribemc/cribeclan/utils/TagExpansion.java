@@ -12,12 +12,12 @@ import org.jetbrains.annotations.Nullable;
 public class TagExpansion extends PlaceholderExpansion {
     @Override
     public @NotNull String getIdentifier() {
-        return "Chunkeater32";
+        return "clan_tag";
     }
 
     @Override
     public @NotNull String getAuthor() {
-        return "tag";
+        return "Chunkeater32";
     }
 
     @Override

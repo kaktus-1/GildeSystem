@@ -35,8 +35,28 @@
                 <configuration>
                     <relocations>
                         <relocation>
+                            <pattern>com</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.com</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>javassist</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.javassist</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>javax</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.javax</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.org</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>redis</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.redis</shadedPattern>
+                        </relocation>
+                        <relocation>
                             <pattern>co.aikar.idb</pattern>
-                            <shadedPattern>de.cribemc.cribeclan.idb</shadedPattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.idb</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>

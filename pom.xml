@@ -6,7 +6,7 @@
 
     <groupId>de.chunkeater32</groupId>
     <artifactId>CribeClan</artifactId>
-    <version>1.3-SNAPSHOT</version>
+    <version>1.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>CribeClan</name>
@@ -35,24 +35,24 @@
                 <configuration>
                     <relocations>
                         <relocation>
-                            <pattern>com.google</pattern>
-                            <shadedPattern>de.cribemc.cribeclan.dependencies.com.google</shadedPattern>
+                            <pattern>com.google.gson</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.com.google.gson</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>com.zaxxer</pattern>
-                            <shadedPattern>de.cribemc.cribeclan.dependencies.com.zaxxer</shadedPattern>
+                            <pattern>com.zaxxer.hikari</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.com.zaxxer.hikari</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>javassist</pattern>
                             <shadedPattern>de.cribemc.cribeclan.dependencies.javassist</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>javax</pattern>
-                            <shadedPattern>de.cribemc.cribeclan.dependencies.javax</shadedPattern>
+                            <pattern>javax.annotation</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.javax.annotation</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.apache</pattern>
-                            <shadedPattern>de.cribemc.cribeclan.dependencies.org.apache</shadedPattern>
+                            <pattern>org.apache.commons.pool2</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.org.apache.commons.pool2</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>org.json</pattern>
@@ -67,8 +67,8 @@
                             <shadedPattern>de.cribemc.cribeclan.dependencies.org.slf4j</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>redis</pattern>
-                            <shadedPattern>de.cribemc.cribeclan.dependencies.redis</shadedPattern>
+                            <pattern>redis.clients.jedis</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.redis.clients.jedis</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>co.aikar.idb</pattern>

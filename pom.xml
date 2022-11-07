@@ -6,7 +6,7 @@
 
     <groupId>de.chunkeater32</groupId>
     <artifactId>CribeClan</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>CribeClan</name>
@@ -35,8 +35,12 @@
                 <configuration>
                     <relocations>
                         <relocation>
-                            <pattern>com</pattern>
-                            <shadedPattern>de.cribemc.cribeclan.dependencies.com</shadedPattern>
+                            <pattern>com.google</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.com.google</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.zaxxer</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.com.zaxxer</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>javassist</pattern>
@@ -47,8 +51,20 @@
                             <shadedPattern>de.cribemc.cribeclan.dependencies.javax</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org</pattern>
-                            <shadedPattern>de.cribemc.cribeclan.dependencies.org</shadedPattern>
+                            <pattern>org.apache</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.org.apache</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.json</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.org.json</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.reflections</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.org.reflections</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.slf4j</pattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.org.slf4j</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>redis</pattern>
@@ -56,7 +72,7 @@
                         </relocation>
                         <relocation>
                             <pattern>co.aikar.idb</pattern>
-                            <shadedPattern>de.cribemc.cribeclan.dependencies.idb</shadedPattern>
+                            <shadedPattern>de.cribemc.cribeclan.dependencies.co.aikar.idb</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>

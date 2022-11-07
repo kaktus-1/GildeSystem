@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class AcceptSubCommand extends SubCommand {
     public AcceptSubCommand() {
-        super("accept", "", "Eingeladener Spieler kann Einladung annehmen");
+        super("accept", "<gilde>", "Eingeladener Spieler kann Einladung annehmen");
         setRequiresClan(false);
         addDefault("a", "§7Du wurdest zu keiner Gilde eingeladen.");
         addDefault("b", "§b%player%§7 ist der Gilde beigetreten.");
@@ -19,9 +19,12 @@ public class AcceptSubCommand extends SubCommand {
 
     @Override
     public boolean execute(Player player, String[] args) {
+        if (args.length != 1)
+            return false;
+
         Map.Entry<Clan, String> entry = InviteSubCommand.invited.entrySet()
                 .stream()
-                .filter(clanStringEntry -> clanStringEntry.getValue().equalsIgnoreCase(args[0]))
+                .filter(clanStringEntry -> clanStringEntry.getKey().getName().equalsIgnoreCase(args[0]))
                 .findFirst().orElse(null);
 
         if (entry == null) {
@@ -34,7 +37,7 @@ public class AcceptSubCommand extends SubCommand {
         RedisRegistry redisRegistry = getInstance().getRedisRegistry();
         redisRegistry.send(AcceptPubSub.class, key.getName());
         key.addPlayer(player);
-        key.announce(getString("a", Replace.of("player", player.getName())));
+        key.announce(getString("b", Replace.of("player", player.getName())));
         return true;
     }
 }

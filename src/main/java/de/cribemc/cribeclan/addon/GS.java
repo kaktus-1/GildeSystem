@@ -25,16 +25,14 @@ import org.jetbrains.annotations.NotNull;
 
 public class GS {
 
-    private final static PlotAPI plotAPI;
-
-    static {
-        plotAPI = new PlotAPI();
-    }
+    private static PlotAPI plotAPI;
 
     public static void initialize() {
         Plugin plotSquared = Bukkit.getPluginManager().getPlugin("PlotSquared");
         if (plotSquared == null || !plotSquared.isEnabled())
             return;
+
+        plotAPI = new PlotAPI();
 
         CribeClan instance = CribeClan.getInstance();
 
@@ -192,6 +190,10 @@ public class GS {
     }
 
     public static void update(String oldName, String newName) {
+        Plugin plotSquared = Bukkit.getPluginManager().getPlugin("PlotSquared");
+        if (plotSquared == null || !plotSquared.isEnabled())
+            return;
+
         Config gs = CribeClan.getInstance().getConfigRegistry().getByName("gs");
 
         Object o = gs.getCfg().get(oldName);

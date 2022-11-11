@@ -36,7 +36,7 @@ public class GildeCommand implements CommandExecutor {
         if (args.length == 0) {
             List<SubCommand> objects = subCommandRegistry.getObjects().stream()
                     .filter(subCommand -> sender.hasPermission("cribe.clans." + subCommand.getName()))
-                    .collect(Collectors.toList());
+                    .toList();
 
             for (SubCommand object : objects) {
                 ChatUtils.sendMessage(sender, "syntax", Replace.of("command", "/gilde " + object.getName()),

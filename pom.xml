@@ -102,7 +102,7 @@
             <dependency>
                 <groupId>com.intellectualsites.bom</groupId>
                 <artifactId>bom-1.18.x</artifactId>
-                <version>1.17</version>
+                <version>1.18</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -168,7 +168,7 @@
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <version>2.4.1</version>
+            <version>5.0.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
         <dependency>

@@ -7,10 +7,13 @@ import de.cribemc.cribeclan.clan.Clan;
 import de.cribemc.cribeclan.clan.Rank;
 import de.cribemc.cribeclan.clan.User;
 import de.cribemc.cribeclan.commands.subcommands.SubCommand;
+import de.cribemc.cribeclan.utils.ChatUtils;
 import de.cribemc.cribeclan.utils.ConfirmHelper;
 import de.cribemc.cribeclan.utils.Replace;
 import lombok.SneakyThrows;
 import org.bukkit.entity.Player;
+
+import java.util.regex.Pattern;
 
 public class SetNameSubCommand extends SubCommand {
     public SetNameSubCommand() {
@@ -18,6 +21,7 @@ public class SetNameSubCommand extends SubCommand {
         addDefault("a", "§7Dieser Befehl ist dem Gilden-Inhaber vorbehalten!");
         addDefault("b", "§7Der Name deiner Gilde ist nun: §b%name%");
         addDefault("c", "§7Bitte warte 7 Tage bevor du deinen Gilden Namen erneut ändern kannst.");
+        addDefault("regex", "(?i)[^A-Z0-9ÄÖÜ§]");
         addDefault("time-in-milli", "604800000");
     }
 
@@ -44,6 +48,13 @@ public class SetNameSubCommand extends SubCommand {
 
         if (Clan.isNotAllowedName(player, args[0]))
             return true;
+
+        Pattern regex = Pattern.compile(getString("regex"));
+
+        if (regex.matcher(args[0]).find() || regex.matcher(args[1]).find()) {
+            ChatUtils.sendMessage(player, "not-allowed");
+            return true;
+        }
 
         ConfirmSubCommand.requestConfirm(player, new ConfirmHelper(this, args, clan));
         return true;

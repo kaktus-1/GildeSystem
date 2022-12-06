@@ -17,7 +17,7 @@ public class InvitePubSub extends RedisPubSub {
 
         Player player = Bukkit.getPlayer(args[1]);
         if (player != null) {
-            ChatUtils.sendMessage(player, "commands.invite.e", Replace.of("player", args[2]),
+            ChatUtils.sendMessage(player, "commands.invite.i", Replace.of("player", args[2]),
                     Replace.of("clan", clanFromName.getName()));
         }
     }

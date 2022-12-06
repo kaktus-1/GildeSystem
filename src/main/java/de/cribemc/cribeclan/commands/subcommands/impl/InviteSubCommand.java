@@ -23,7 +23,7 @@ public class InviteSubCommand extends SubCommand {
         addDefault("b", "§7Dieser Spieler ist bereits Mitglied einer Gilde.");
         addDefault("c", "§7Bitte warte einen Moment bevor du noch jemanden einlädst.");
         addDefault("d", "§7Du hast §b%player% §7erfolgreich zur Gilde eingeladen!");
-        addDefault("e", "§7Du wurdest von %player% zur Gilde %clan% eingeladen.");
+        addDefault("i", "§7Du wurdest von %player% zur Gilde %clan% eingeladen.\n§7Nehme diese Einladung mit §e/gilde accept %clan%§7 an.");
         addDefault("f", "§b%player% §7hat die Gilden Einladung nicht angenommen.");
         addDefault("g", "§7Zeit zum Annehmen der Gilden Einladung für %clan% abgelaufen.");
         addDefault("h", "§7Dieser Spieler wurde bereits von jemanden eingeladen.\n§7Du musst warten bis diese Einladung abgelaufen ist.");

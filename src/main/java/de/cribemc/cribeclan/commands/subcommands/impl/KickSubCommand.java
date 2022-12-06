@@ -15,6 +15,8 @@ public class KickSubCommand extends SubCommand {
         addDefault("c", "§b%player% §7wurde aus der Gilde geworfen.");
         addDefault("d", "§7Du wurdest aus der Gilde geworfen!");
         addDefault("e", "§b%player% §7wurde aus der Gilde geworfen.");
+        addDefault("f", "§7Du kannst dich nicht selber rauswerfen.");
+        addDefault("g", "§7Du kannst keine Gilden Moderatoren rauswerfen.");
     }
 
     @Override
@@ -31,6 +33,16 @@ public class KickSubCommand extends SubCommand {
 
         if (user1 == null) {
             sendMessage(player, "b");
+            return true;
+        }
+
+        if (user1.getUuid() == user.getUuid()) {
+            sendMessage(player, "f");
+            return true;
+        }
+
+        if (user1.getRank() != Rank.MEMBER && user.getRank() != Rank.OWNER) {
+            sendMessage(player, "g");
             return true;
         }
 

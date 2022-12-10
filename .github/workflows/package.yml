@@ -17,7 +17,7 @@ jobs:
       - uses: s4u/maven-settings-action@v2.7.0
         with:
           path: settings/psettings.xml
-          servers: '[{"id": "github", "username": "elephant-git", "password": "${{ secrets.ELEPHANT }}"}]'
+          servers: '[{"id": "github", "username": "elephant-git", "password": "${{ secrets.ELEPHANT_PACKAGES }}"}]'
       - name: files2
         run: ls -R
       - uses: actions/setup-java@v3
@@ -32,4 +32,4 @@ jobs:
       - name: Publish to GitHub Packages Apache Maven
         run: mvn deploy -s $GITHUB_WORKSPACE/settings/psettings.xml -X
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ELEPHANT }}

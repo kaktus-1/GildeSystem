@@ -1,0 +1,35 @@
+name: Maven Package
+
+on:
+  release:
+    types: [ created ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: files3
+        run: ls -R
+      - uses: s4u/maven-settings-action@v2.7.0
+        with:
+          path: settings/psettings.xml
+          servers: '[{"id": "github", "username": "elephant-git", "password": "${{ secrets.ELEPHANT }}"}]'
+      - name: files2
+        run: ls -R
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '16'
+          distribution: 'adopt'
+          server-id: github
+      - name: files
+        run: ls -R
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+      - name: Publish to GitHub Packages Apache Maven
+        run: mvn deploy -s $GITHUB_WORKSPACE/settings/psettings.xml -X
+        env:
+          GITHUB_TOKEN: ${{ secrets.ELEPHANT }}

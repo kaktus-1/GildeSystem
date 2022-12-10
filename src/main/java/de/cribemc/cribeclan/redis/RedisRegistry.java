@@ -87,4 +87,9 @@ public class RedisRegistry extends NameableRegistry<RedisPubSub> {
             ressource.publish("clan", s);
         }
     }
+
+    public void destroy() {
+        if (pool != null)
+            pool.close();
+    }
 }

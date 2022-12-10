@@ -54,6 +54,6 @@ public final class CribeClan extends JavaPlugin {
 
     @Override
     public void onDisable() {
-
+        getRedisRegistry().destroy();
     }
 }

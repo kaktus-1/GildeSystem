@@ -32,4 +32,4 @@ jobs:
       - name: Publish to GitHub Packages Apache Maven
         run: mvn deploy -s $GITHUB_WORKSPACE/settings/psettings.xml -X
         env:
-          GITHUB_TOKEN: ${{ secrets.ELEPHANT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -50,7 +50,7 @@ jobs:
         run: ls -R
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          repo_token: "${{ secrets.ELEPHANT }}"
           prerelease: false
           title: "${{ steps.project.outputs.version }} v${{ steps.version.outputs.version }}"
           automatic_release_tag: "${{ steps.version.outputs.version }}"

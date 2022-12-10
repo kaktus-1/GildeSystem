@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.cribemc</groupId>
-    <artifactId>CribeClan</artifactId>
-    <version>2.5</version>
+    <artifactId>cribe-clans</artifactId>
+    <version>2.6</version>
     <packaging>jar</packaging>
 
-    <name>CribeClan</name>
+    <name>cribe-clans</name>
 
     <description>A full functional clan-system for cribe network</description>
     <properties>

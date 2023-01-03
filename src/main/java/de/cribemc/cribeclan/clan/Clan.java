@@ -26,6 +26,8 @@ public class Clan {
     @NonNull
     @Setter
     private String tag;
+    @Setter
+    private int userLimit = 15;
 
     private final ArrayList<User> users = new ArrayList<>();
     private final ArrayList<CustomRank> customRanks = new ArrayList<>();
@@ -49,6 +51,22 @@ public class Clan {
         DB.executeUpdate("UPDATE `clans` SET `tag` = ? WHERE `name` = ?",
                 tag, getName());
         getRedisRegistry().send(UpdateTagPubSub.class, getName(), tag);
+    }
+
+    @SneakyThrows
+    public void increaseUserLimit() {
+        int limit = getUserLimit() + 1;
+
+        getRedisRegistry().send(UpdateUserLimitPubSub.class, getName(), String.valueOf(limit));
+
+        if (limit == 16) {
+            DB.executeInsert("INSERT INTO `userlimits` (`clan`, `limit`) VALUES (?, ?)",
+                    getName(), limit);
+            return;
+        }
+
+        DB.executeUpdate("UPDATE `userlimits` SET `limit` = ? WHERE `clan` = ?",
+                limit, getName());
     }
 
     @SneakyThrows

@@ -27,6 +27,7 @@ public class InviteSubCommand extends SubCommand {
         addDefault("f", "§b%player% §7hat die Gilden Einladung nicht angenommen.");
         addDefault("g", "§7Zeit zum Annehmen der Gilden Einladung für %clan% abgelaufen.");
         addDefault("h", "§7Dieser Spieler wurde bereits von jemanden eingeladen.\n§7Du musst warten bis diese Einladung abgelaufen ist.");
+        addDefault("j", "§7Du hast dein Userlimit von §e%limit% §7erreicht!\n§7Du benötigst ein §f+1 §6Gilden-Mitglied §7Item um dein Limit zu erhöhen!");
     }
 
     @Override
@@ -53,6 +54,11 @@ public class InviteSubCommand extends SubCommand {
 
         if (invited.containsValue(args[0])) {
             sendMessage(player, "h");
+            return true;
+        }
+
+        if (clan.getUsers().size() >= clan.getUserLimit()) {
+            sendMessage(player, "j");
             return true;
         }
 

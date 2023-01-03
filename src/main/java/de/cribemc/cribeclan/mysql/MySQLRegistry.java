@@ -40,6 +40,8 @@ public class MySQLRegistry {
                 "`time` LONG NOT NULL)");
         hikariDatabase.executeUpdate("CREATE TABLE IF NOT EXISTS `namecooldown` (`clan` TEXT NOT NULL, " +
                 "`time` LONG NOT NULL)");
+        hikariDatabase.executeUpdate("CREATE TABLE IF NOT EXISTS `userlimits` (`clan` TEXT NOT NULL, " +
+                "`limit` TEXT NOT NULL)");
 
         ClanRegistry clanRegistry = instance.getClanRegistry();
 
@@ -48,6 +50,12 @@ public class MySQLRegistry {
             String tag = result.getString("tag");
 
             clanRegistry.getClans().add(new Clan(name, tag));
+        }
+
+        for (DbRow result : hikariDatabase.getResults("SELECT * FROM `userlimits`")) {
+            Clan clan = clanRegistry.getClanFromName(result.getString("clan"));
+
+            clan.setUserLimit(Integer.parseInt(result.getString("limit")));
         }
 
         for (DbRow result : hikariDatabase.getResults("SELECT * FROM `customranks`")) {

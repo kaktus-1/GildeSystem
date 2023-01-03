@@ -40,6 +40,7 @@ public class ClanRegistry {
         DB.executeUpdate("DELETE FROM `clans` WHERE `name` = ?", name);
         DB.executeUpdate("DELETE FROM `users` WHERE `clan` = ?", name);
         DB.executeUpdate("DELETE FROM `customranks` WHERE `clan` = ?", name);
+        DB.executeUpdate("DELETE FROM `userlimits` WHERE `clan` = ?", name);
         getRedisRegistry().send(DeleteClanPubSub.class, name);
     }
 

@@ -33,6 +33,11 @@ public class GildeCommand implements CommandExecutor {
             return false;
         }
 
+        if (true) {
+
+            return true;
+        }
+
         if (args.length == 0) {
             List<SubCommand> objects = subCommandRegistry.getObjects().stream()
                     .filter(subCommand -> sender.hasPermission("cribe.clans." + subCommand.getName()))
